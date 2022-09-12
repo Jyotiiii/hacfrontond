@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<div class="descriptionModal"style="padding-left:-300px;background-color:white;">
+  <form [formGroup]="MasterData" id="MasterData">
+
+    <!-- <p style="background-image: url('./../assets/Standardbank.jpeg');"> -->
+    <div class="container">
+
+      <div class="center">
+
+        <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+          <div class="logoset"><img src="./../assets/Standardbank.png" alt="logoEmbajador" width="100" height="100">
+          </div>
+
+          <div class="wrapper wrapper--w790">
+            <div>
+              <div class="card-heading">
+                <h2 class="title"style="
+                top: 20px;left:590px;
+                "> Master Data </h2>
+              </div>
+              &nbsp;
+              <br><br>
+              <div class="card-body">
+                <div class="form-row m-b-55">
+                  <div class="name"> Price Per Unit</div>
+                  &nbsp;
+                  <div class="value">
+                    <div class="input-group">
+                      <input class="input--style-5" style="width:unset"type="text" name="pricePerUnit" formControlName="pricePerUnit">
+                    </div>
+                  </div>
+                </div>
+            
+                <div class="form-row m-b-55">
+                  <div class="name">VAT Percentage</div>
+                  &nbsp;
+                  <div class="value">
+                    <div class="input-group">
+                      <input class="input--style-5" type="text" name="vatPercentage"
+                        formControlName="vatPercentage">
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="form-row m-b-55">
+                    <div class="name"style="width:unset">Discount Percentage</div>
+                    &nbsp;
+                    <div class="value">
+                      <div class="input-group">
+                        <input class="input--style-5" type="text" name="discountPercentage"
+                          formControlName="discountPercentage">
+                      </div>
+                    </div>
+                  </div>
+                <div class="form-row m-b-55">
+                    <h2 class="name" style="position: absolute;
+                    top: 410px;
+                    "> Supplier Type</h2>
+               </div>
+               <select name="supplierType" id="supplierType" style="position:absolute;top:440px;background:transparent;width:200px;border-color: black;" name="supplierType" formControlName="supplierType">
+                    <option value="Nomanini">Nomanini</option>
+                    <option value="Airtel">Airtel</option>
+                    <option value="Mno">Mno</option>
+                  </select>
+                  <div class="form-row m-b-55">
+                    <div class="name"><div class=forgetset><a href="forgetPasswordController"style="color:#555;position:absolute;left:10px;bottom:610px;" routerLink="/login">Back</a></div></div></div> 
+                  <div class="center" style="position:absolute;top:520px">
+                    <button class="btn btn--radius-2 btn--red" type="submit"  (click)="submit()">submit</button>
+                  </div>
+                  <div class="holder" *ngIf="showhide">     
+                    <div id="popup" class="popup">  
+                             
+                        <div class="content" *ngFor="let a of showdata">
+                          Ok: {{a.ok}}<br>
+                          Id:{{a.id}}<br>
+                          rev: {{a.rev}}<br>
+                          <br>&nbsp;&nbsp;
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <button class="btn btn--radius-2 btn--red" type="submit"  routerLink="/MasterData">ok</button>
+                         </div>
+                    </div>
+                  </div>
+                  
+                  <div class="holder" *ngIf="errormsg">     
+                  <div id="popup" class="popup">            
+                      <div class="content">Invalid data {{ '{' }}  {{'}'}}</div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+         </div>
+    </div>
+  </form>
+</div>
+
+</html>
+<!-- end document-->

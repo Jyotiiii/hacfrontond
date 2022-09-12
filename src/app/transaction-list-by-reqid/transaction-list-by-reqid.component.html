@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<div class="descriptionModal">
+  <form [formGroup]="TransactionListByreqid" id="TransactionListByreqid" >
+
+    <!-- <p style="background-image: url('./../assets/Standardbank.jpeg');"> -->
+    <div class="container">
+
+      <div class="center">
+
+        <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+          <div class="logoset"><img src="./../assets/Standardbank.png" alt="logoEmbajador" width="100" height="100">
+          </div>
+
+          <div class="wrapper wrapper--w790">
+            <div>
+              <div class="card-heading">
+                <h2 class="title"style="position: absolute;
+                top: 100px;left:570px;
+                "> View Transaction List</h2>
+              </div><br>
+            <div class="card-body">
+              <div>
+                <!-- <div>
+                  <div class="center" style="position: absolute;left:940px ;top:110px">
+                    <button class="btn btn--radius-2 btn--red" type="submit" routerLink="/CalculateOrderPayment">Calculate Orders</button>
+                  </div>
+                </div> -->
+                <table class="styled-table">
+                  <thead class="name">
+                    <tr>
+                        <th scope="col" >Timestamp</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <th scope="col" >TransactionId</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <th scope="col">BlockNo. <span class="col-required"></span></th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <th scope="col">OrderId<span class="col-required"></span></th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <!-- <th scope="col">Discounted_Amount<span class="col-required"></span></th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+                        <th scope="col">OperationType<span class="col-required"></span></th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       
+                      </tr>
+                </thead>
+                <tbody>
+                 <tr *ngFor="let token of ApproveRejectList  let i = index">
+                  
+                 <td>{{token.transactionTimeStamp}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <td><button class="link" (click)="viewHistory1(i)">{{token.transactionId}}</button></td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <td>{{token.blockNo}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <td>{{token.orderId}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <!-- <td>{{token.discountAmount}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+                 <td>{{token.operationType}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               </tr>
+              </tbody>
+            </table>
+            <!-- <div class="holder" *ngIf="showapprove">     
+              <div id="popup" class="popup">  
+                       
+                  <div class="content" ><h5>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Order Successfully Approved</h5><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn--radius-2 btn--red" type="submit"  routerLink="/FindOrders">ok</button>
+
+                   </div>
+              </div>
+            </div> -->
+            <!-- <div class="holder" *ngIf="showreject">     
+              <div id="popup" class="popup">  
+                       
+                  <div class="content"><h5>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Order Successfully reject</h5><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn--radius-2 btn--red" type="submit"  routerLink="/FindOrders">ok</button>
+
+                   </div>
+              </div>
+            </div> -->
+
+            <div class="form-row m-b-55">
+              <div class="name"><div class=forgetset><a href="forgetPasswordController"style="color:brown;position:absolute;left: 150px;bottom:590px;" routerLink="/FindOrders">< Back</a></div></div></div> 
+           
+            <!-- <app-pagination (pageChange)="pageSwitch($event)" (pageSizeChange)="pageSize($event)" [pageSize]="paginateOption.itemsPerPage"[initPage]="paginateOption.currentPage">
+        
+            </app-pagination> -->
+             <!-- <div class="form-row m-b-55">
+                    <div class="name"><div class=forgetset><a href="forgetPasswordController"style="color:#555;position:absolute;left: 408px;bottom:640px;" routerLink="/login">Back</a></div></div></div> 
+                   -->
+                 
+              </div>
+             
+                </div>
+              
+              </div>
+            </div>
+          </div>
+         </div>
+    </div>
+  
+      
+    <!-- -->
+  </form>
+  
+</div>
+
+</html>
+<!-- end document-->

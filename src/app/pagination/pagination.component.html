@@ -1,0 +1,88 @@
+ <footer class= "ev-section_ footer p-10">
+
+<pagination-template [id]="id" #p="paginationApi" class="ev-pagination flex-row pl-5 pr-5" (pageChange)="pageSwitch($event)"
+(pageBoundsCorrection)="pageCorrection($event)">
+<div class="clearfix" *ngIf="p.getTotalItems() ; else noResultTemplate">
+<span>Page</span>
+<button class="clearfix" type="button" aria-label="Previous Page"
+title="Previous Page" (click)="p.previous()" [disabled]="p.isFirstPage()">
+<svg focusable="false"
+class="fill"
+xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+<path d="M13 13.8L9.3 10 13 6.2 11.8 5 7 1011.1 1.1 3.7 3.9z"></path>
+</svg>
+</button>
+<div class="mw-30">
+    <label>
+        <div>Page Number</div>
+        <select [(ngModel)]="initPage" (change)="p.setCurrent(initPage)">
+            <option *ngFor="let page of p.pages" [value]="page.value" [selected]="page.value ===p.getCurrent()">{{page.value}}</option>
+        </select>
+    </label>
+</div>
+<span class="ev-pagination.label">of </span>
+<span class="ev-pagination_value">{{p.getLastPage()}}</span>
+<button class="ev-button ev-button-borderless ev-button=-icon" type="button" aria-label="Next-Page"
+title="Next Page" (click)="p.next()" [disabled]="p.isLastPage()">
+<svg focusable="false" class="fill" xmlns="http://www.w3.org/2000/svg" viewBox="© e 20 20">
+<path d="M7 6.213.7 3.8L7 13.8 8.2 1514.8-5-1.1-1.1L8.2 5z"></path>
+</svg>
+</button>
+<span class="ev-pagination__ label ml-10">Showing</span>
+<span class="ev-pagination value">
+{{(p.getCurrent() - 1) * pageSize +1}} - {{p.getCurrent()*pageSize > p.getTotalItems() ? p.getTotalItems() : p.getCurrent ()*pageSize}}
+</span>
+<span class="ev-pagination__label">of</span>
+<span class="ev-pagination value">{{p.getTotalItems()}}</span>
+</div>
+<div class="ev-pagination results">
+<span class="ev-pagination label mr-5">Results per page</span>
+<div class="ev-field ev-field--nolabel">
+<label>
+<div class="ev-field_label">Results per page</div>
+<select [(ngModel)]="pageSize" (change) = "pageSizeSwitch(pageSize)">
+<option *ngFor="let i of [10,20,30]" [value]="i">((i))</option>
+</select>
+</label>
+</div>
+</div>
+<ng-template #noResultTemplate>
+<div class="ev-pagination_ pages flex-row flex">
+<span class="ev-pagination label" >Page</span>
+<button class="ev-button ev-button--borderless ev-button--icon" type="button"
+aria-label="Previous Page"
+title="Previous Page" disabled>
+<svg focusable="false" class="fill" xmlns="http://www.w3.org/2000/svg"
+viewBox="0 0 20 20">
+<path d="M13 13.8L9.3 10 13 6.2 11.8 5 7 10l1.1 1.1 3.7.3.9z"></path>
+</svg>
+</button>
+<div class="ev-field ev-field--nolabel mw-30">
+<label>
+<div class="ev-field_ label" >Page number</div>
+<select>
+<option selected>0</option>
+
+</select>
+
+</label>
+</div>
+<span class="ev-pagination label">of </span>
+<span class="ev-pagination value">0</span>
+<button class="ev-button év-button-borderless ev-button--icon" type="button"
+aria-label="Next Page"
+title="Next Page" disabled>
+
+<svg focusable="false" class="fill" xmlns="http://www.w3.org/2600/svg"
+ViewBox="0. 0 20 20">
+<path d="M7 6.213.7 3.8L7 13.8 8.2 1514.8-5-1.1-1.1L8.2 5z"></path>
+</svg>
+</button>
+<span class="ev-pagination label ml-10" >Showing</span>
+<span class="ev-pagination.value">0</span>
+<span class="ev-pagination_label">of</span>
+<span class="ev-pagination.value">0</span>
+</div>
+</ng-template>
+</pagination-template>
+</footer>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<div class="descriptionModal">
+  <form [formGroup]="FindOrders" id="FindOrders" >
+
+    <!-- <p style="background-image: url('./../assets/Standardbank.jpeg');"> -->
+    <div class="container">
+
+      <div class="center">
+
+        <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+          <div class="logoset"><img src="./../assets/Standardbank.png" alt="logoEmbajador" width="100" height="100">
+          </div>
+
+          <div class="wrapper wrapper--w790">
+            <div>
+              <div class="card-heading">
+                <h2 class="title"style="position: absolute;
+                top: 100px;left:570px;
+                "> View Order List</h2>
+              </div><br>
+            <div class="card-body">
+              <div>
+                 <div>
+                  <div class="center" style="position: absolute;left:870px ;top:110px">
+                    <button class="btn btn--radius-2 btn--red" type="submit" routerLink="/CalculateOrderPayment"style="font-size: 11px;">Create New Order</button>
+                  </div>
+                </div>
+                <table class="styled-table">
+                  <thead class="name">
+                    <tr>
+                        <th scope="col" >Date</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <th scope="col" >Req_id</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <th scope="col">Gross_Amount <span class="col-required"></span></th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <th scope="col">Discount<span class="col-required"></span></th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <!-- <th scope="col">Discounted_Amount<span class="col-required"></span></th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+                        <th scope="col">VAT<span class="col-required"></span></th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <th scope="col">Status<span class="col-required"></span></th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <th scope="col">      <span class="col-required"></span></th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <th scope="col">      <span class="col-required"></span></th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    </tr>
+                </thead>
+                <tbody>
+                 <tr *ngFor="let token of ApproveRejectList | paginate:paginateOption; let i = index">
+                 <td>{{token.createdDate}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <td>{{token.requestId}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <td>{{token.grossAmount}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <td>{{token.discount}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <!-- <td>{{token.discountAmount}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+                 <td>{{token.Vat}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <!-- <div *nfIf="token.status=='confirm'"><td>{{token.status[token.fileUrl]}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div> -->
+                 <!-- <td>{{token.status}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+                 <td>{{token.status}}<br><a href="{{token.fileUrl}}" download>{{token.fileUrl}}</a></td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                 <td>
+                  <label> 
+                  <!-- <button [style.display]="token.status=='confirm'?'block':'none' "class="btn btn--radius-2 btn--red"   routerLink='/ApproveOrder' type="button">Pay</button> -->
+                  <button [style.display]="token.status=='Approved'?'block':'none' "class="btn btn--radius-2 btn--red"   (click)="Pay(i)" type="button">Pay</button>
+                  <!-- <button class="ev-button ev-button--secondary" routerLink='/'  type="button" >Reject</button>-->
+                </label></td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <td>
+                  <label> 
+                  <button class="btn btn--radius-2 btn--red"   (click)="viewHistory(i)" style="font-size: 9px;"
+                 type="button">view</button>
+                </label></td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </tr>
+
+                
+                 </tbody>
+            </table>
+            <div class="holder" *ngIf="showpay">     
+              <div id="popup" class="popup">  
+                    <div class="content" ><h5>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Order Successfully Paid</h5><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn--radius-2 btn--red" type="submit" (click)="OKSubmit()">Ok</button>
+
+                   </div>
+              </div>
+            </div>
+
+          
+            <div class="form-row m-b-55">
+              <div class="name"><div class=forgetset><a href="forgetPasswordController"style="color:brown;position:absolute;left: 150px;bottom:590px;" routerLink="/login"> < Back</a></div></div></div> 
+           
+            <!-- <app-pagination (pageChange)="pageSwitch($event)" (pageSizeChange)="pageSize($event)" [pageSize]="paginateOption.itemsPerPage"[initPage]="paginateOption.currentPage">
+        
+            </app-pagination> -->
+             <!-- <div class="form-row m-b-55">
+                    <div class="name"><div class=forgetset><a href="forgetPasswordController"style="color:#555;position:absolute;left: 408px;bottom:640px;" routerLink="/login">Back</a></div></div></div> 
+                   -->
+                 
+                  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+         </div>
+    </div>
+  
+      
+    
+  </form>
+  
+</div>
+
+</html>
+<!-- end document-->

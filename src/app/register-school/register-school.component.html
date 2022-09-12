@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<div class="descriptionModal">
+  <form [formGroup]="registerschool" id="registerschool">
+
+    <!-- <p style="background-image: url('./../assets/Standardbank.jpeg');"> -->
+    <div class="container">
+
+      <div class="center">
+
+        <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+          <div class="logoset"><img src="./../assets/Standardbank.png" alt="logoEmbajador" width="100" height="100">
+          </div>
+
+          <div class="wrapper wrapper--w790">
+            <div>
+              <div class="card-heading">
+                <h2 class="title" style="position: absolute;
+                top: 20px;
+                left: 560px;color:white"> Registration</h2>
+              </div>
+              &nbsp;
+              <div class="card-body">
+                <div class="form-row m-b-55">
+                  <div class="name">First Name</div>
+                  &nbsp;
+                  <div class="value">
+                    <div class="input-group">
+                      <input class="input--style-5" type="text" name="Fname" formControlName="Fname">
+                    </div>
+                  </div>
+                </div>
+                <div class="error-messages">
+                  <ng-container *ngFor="let error of error_messages.Fname">
+                    <div class="error-message" style="position: absolute;
+                    top: 120px;
+                    font-size: small;" *ngIf="registerschool.get('Fname').hasError(error.type) && (registerschool.get('Fname').dirty || registerschool.get('Fname').touched)">
+                      {{ error.message }}
+                    </div>
+                  </ng-container>
+                </div>
+                <div class="form-row m-b-55">
+                  <div class="name"style="width:none">Last Name</div>
+                  &nbsp;
+                  <div class="value">
+                    <div class="input-group">
+                      <input class="input--style-5" type="text" name="Lname"
+                        formControlName="Lname">
+                    </div>
+                  </div>
+                </div>
+                <div class="error-messages">
+                  <ng-container *ngFor="let error of error_messages.Lname">
+                    <div class="error-message"  style="position: absolute;
+                    top: 220px;
+                    font-size: small;" *ngIf="registerschool.get('Lname').hasError(error.type) && (registerschool.get('Lname').dirty || registerschool.get('Lname').touched)">
+                      {{ error.message }}
+                    </div>
+                  </ng-container>
+                </div>
+                <div class="form-row m-b-55">
+                  <div class="name">Username</div>
+                  &nbsp;
+                  <div class="value">
+                    <div class="input-group">
+                      <input class="input--style-5" type="text" name="Username" formControlName="Username">
+                    </div>
+                  </div>
+                </div>
+                <div class="error-messages">
+                  <ng-container *ngFor="let error of error_messages.Username">
+                    <div class="error-message"  style="position: absolute;
+                    top: 320px;
+                    font-size: small;" *ngIf="registerschool.get('Username').hasError(error.type) && (registerschool.get('Username').dirty || registerschool.get('Username').touched)">
+                      {{ error.message }}
+                    </div>
+                  </ng-container>
+                </div>
+
+                <div class="form-row m-b-55">
+                  <div class="name">Password</div>
+                  &nbsp;
+                  <div class="value">
+                    <div class="input-group">
+                      <input class="input--style-5" type="text" name="Password" formControlName="Password">
+                    </div>
+                  </div>
+                </div>
+                <div class="error-messages">
+                  <ng-container *ngFor="let error of error_messages.Password">
+                    <div class="error-message"  style="position: absolute;
+                    top: 420px;
+                    font-size: small;" *ngIf="registerschool.get('Password').hasError(error.type) && (registerschool.get('Password').dirty || registerschool.get('Password').touched)">
+                      {{ error.message }}
+                    </div>
+                  </ng-container>
+                </div>
+                <div class="form-row m-b-55">
+                  <div class="name" style="width: fit-content;">confirm Password</div>
+                  &nbsp;
+                  <div class="value">
+                    <div class="input-group">
+                      <input class="input--style-5" type="text" name="confirmpassword" formControlName="confirmpassword"[ngClass]="{ 'is-invalid': submitted && f['confirmpassword'].errors }">
+                     
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="submitted && f['confirmpassword'].errors">
+                  <div *ngIf="f['confirmpassword'].errors['required']" style="position: absolute;
+                  top: 530px;
+                  font-size: small;">Confirm Password is required</div>
+                  <div *ngIf="f['confirmpassword'].errors['mustMatch']" style="position: absolute;
+                  top: 530px;
+                  font-size: small;">Passwords must match</div>
+              </div>
+
+                <select name="Persona" id="Persona" style="background:transparent;width:200px" name="Persona" formControlName="Persona">
+                  <option value="Nomanini">Nomanini</option>
+                  <option value="Approver">Approver</option>
+                  <option value="Mno">Mno</option>
+                </select>
+                <div>
+                  <!-- <span *ngIf="registerschool.errors">
+                    Password doesn't match
+                  </span> -->
+                  <!-- <pre>
+                    Form Error - {{ registerschool.errors | json }}
+                  </pre> -->
+                  <div class="center">
+                    <button class="btn btn--radius-2 btn--red" style="position: absolute;top:650px" type="submit"  (click)="submit()">submit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+</html>
+<!-- end document-->
